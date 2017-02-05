@@ -1,0 +1,276 @@
+
+/*!
+ * Start Bootstrap - Simple Sidebar HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+/* Toggle Styles */
+
+#wrapper {
+    padding-left: 0;
+    height: 100%;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled {
+    padding-left: 300px;
+}
+
+#sidebar-wrapper{
+    z-index: 1000;
+    position: fixed;
+    width: 0;
+    height: calc(100% - 50px/*top navbar height*/ - 30px/*bottom navbar height*/ - 1px);
+    left: 300px;
+    margin-left: -300px;
+    /*overflow-y: auto;*/
+    overflow-x: visible;
+    background: #222;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    width: 300px;
+}
+
+#page-content-wrapper {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    /*padding: 15px;*/
+    display: inline-block;
+}
+
+#wrapper.toggled #page-content-wrapper {
+    position: absolute;
+    margin-right: -300px;
+}
+
+/* Sidebar Styles */
+
+/*#sidebar-wrapper .sidebar-content{
+    padding: 0 10px;
+    position: relative;
+    color: #9D9D9D;
+}*/
+
+.sidebar-nav {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.sidebar-nav li {
+    text-indent: 20px;
+    line-height: 40px;
+}
+
+.sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: #999999;
+}
+
+.sidebar-nav li a:hover {
+    text-decoration: none;
+    color: #fff;
+    background: rgba(255,255,255,0.2);
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+    text-decoration: none;
+}
+
+.sidebar-nav > .sidebar-brand {
+    height: 65px;
+    font-size: 18px;
+    line-height: 60px;
+}
+
+.sidebar-nav > .sidebar-brand a {
+    color: #999999;
+}
+
+.sidebar-nav > .sidebar-brand a:hover {
+    color: #fff;
+    background: none;
+}
+
+.meeting-thumbnail{
+    cursor: pointer;
+    margin: 10px 0 0;
+}
+
+.meeting-thumbnail .panel-heading{
+    padding: 5px;
+}
+
+.meeting-thumbnail .list-group-item{
+    padding: 1px 5px;
+    line-height: 1.2;
+}
+
+.meeting-thumbnail:hover{
+    border-color: #337AB7;
+
+}
+
+@media(min-width:768px) {
+    #wrapper {
+        padding-left: 300px;
+    }
+
+    #wrapper.toggled {
+        padding-left: 0;
+    }
+
+    #sidebar-wrapper {
+        width: 300px;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        width: 0;
+    }
+
+    #page-content-wrapper {
+        /*padding: 20px;*/
+        position: relative;
+    }
+
+    #wrapper.toggled #page-content-wrapper {
+        position: relative;
+        margin-right: 0;
+    }
+
+body{
+    padding-top: 51px;
+    padding-bottom: 31px;
+}
+
+.navbar{
+    border-radius: 0;
+    margin-bottom: 0;
+}
+
+.navbar-fixed-bottom{
+    min-height: 30px;
+}
+
+.navbar-fixed-bottom .credits{
+    text-align: center;
+    line-height: 30px;
+    color: #9D9D9D;
+}
+
+.sidebar-toggle{
+    position: absolute;
+    bottom: 0;
+    width: 300px;
+    height: 30px;
+    cursor: pointer;
+    color: #9D9D9D;
+    border-right: 1px solid #101010;
+}
+
+.sidebar-toggle span:first-child{
+    line-height: 30px;
+    display: block;
+    text-align: center;
+}
+
+.sidebar-toggle span:nth-child(2){
+    position: absolute;
+    right: 10px;
+    top: 8px;
+}
+
+.sidebar-toggle:hover{
+    color: #FFF
+}
+
+#sidebar-content{
+    padding: 0 10px;
+}
+
+#sidebar-content .filter{
+    padding-top: 10px;
+}
+
+#sidebar-content .filter:last-child{
+    padding-bottom: 10px;
+}
+
+#sidebar-content .filter-by-date .row{
+    margin-right: -10px;
+    margin-left: -10px;
+}
+
+#sidebar-content .filter-by-date .row .col-sm-6:first-child{
+    padding-right: 5px;
+    padding-left: 10px;
+}
+
+#sidebar-content .filter-by-date .row .col-sm-6:nth-child(2){
+    padding-left: 5px;
+    padding-right: 10px;
+}
+
+.panel-toggle,
+.panel-header{
+    position: relative;
+    width: 300px;
+    height: 31px;
+    margin-left: -10px;
+    padding-left: 10px;
+    cursor: pointer;
+    color: #9D9D9D;
+    border-bottom: 1px solid #101010;
+}
+
+.panel-header{
+    cursor: default;
+}
+
+.panel-toggle span:first-child,
+.panel-header span{
+    line-height: 30px;
+    font-size: 18px;
+    display: block;
+    text-align: left;
+}
+
+.panel-toggle span:nth-child(2){
+    position: absolute;
+    right: 10px;
+    top: 8px;
+}
+
+.panel-toggle:hover{
+    color: #FFF
+}
+
+#filters-panel{
+    position: relative;
+}
+
+#filters-panel:after{
+    content: "";
+    width: 300px;
+    position: absolute;
+    left: -10px;
+    bottom: 0;
+    border-bottom: 1px solid #101010;
+}
+
+}

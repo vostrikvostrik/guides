@@ -1,0 +1,98 @@
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+    <definition name="base" template="/WEB-INF/pages/tiles/layout.jsp">
+        <put-attribute name="content" value="/WEB-INF/pages/index.jsp"/>
+        <put-attribute name="topMenu" value="/WEB-INF/pages/tiles/topMenu.jsp"/>
+        <put-attribute name="subMenu" value="/WEB-INF/pages/tiles/subMenu.jsp"/>
+        <put-attribute name="botMenu" value=""/>
+        <put-attribute name="selected" value="default" />
+        <put-attribute name="tagCloud" value="/WEB-INF/pages/main/tagCloud.jsp" />
+        <put-attribute name="searchForm" value="/WEB-INF/pages/main/searchForm.jsp" />
+    </definition>
+
+    <definition name="search" template="/WEB-INF/pages/tiles/searchLayout.jsp">
+        <put-attribute name="content" value="/WEB-INF/pages/main/search.jsp"/>
+        <put-attribute name="topMenu" value="/WEB-INF/pages/tiles/topMenu.jsp"/>
+        <put-attribute name="subMenu" value="/WEB-INF/pages/tiles/subMenu.jsp"/>
+        <put-attribute name="tagCloud" value="/WEB-INF/pages/main/tagCloud.jsp" />
+    </definition>
+
+
+    <!-- Default Admin Template -->
+    <definition name="baseAdminTemplate" template="/WEB-INF/pages/settings/index.jsp">
+        <put-attribute name="content" value="" />
+        <put-attribute name="subMenu" value="/WEB-INF/pages/settings/subMenu.jsp"/>
+        <put-attribute name="topMenu" value="/WEB-INF/pages/settings/topMenu.jsp"/>
+        <put-attribute name="selected" value="default" />
+        <put-attribute name="botMenu" value=""/>
+        <put-attribute name="admintype" value="default" />
+    </definition>
+
+    <definition name="baseLoginTemplate" template="/WEB-INF/pages/login.jsp">
+    </definition>
+
+    <definition name="404error" extends="base">
+        <put-attribute name="content" value="/WEB-INF/pages/errors/404error.jsp" />
+    </definition>
+
+    <definition name="403error" extends="base">
+        <put-attribute name="content" value="/WEB-INF/pages/errors/403error.jsp" />
+    </definition>
+
+    <definition name="500error" extends="base">
+        <put-attribute name="content" value="/WEB-INF/pages/errors/500error.jsp" />
+    </definition>
+
+    <definition name="index" extends="base">
+        <put-attribute name="content" value="/WEB-INF/pages/index.jsp" />
+        <put-attribute name="selected" value="index" />
+    </definition>
+
+
+    <definition name="tourview" extends="base">
+        <put-attribute name="content" value="/WEB-INF/pages/tour/main.jsp"/>
+    </definition>
+
+    <definition name="login" extends="baseLoginTemplate">
+    </definition>
+
+    <definition name="short.*" extends="base">
+        <put-attribute name="content" value="/WEB-INF/pages/index.jsp" />
+    </definition>
+
+    <definition name="registration" extends="base">
+        <put-attribute name="content" value="/WEB-INF/pages/registration/regUser.jsp" />
+    </definition>
+
+
+    <!-- Admin Pages -->
+
+    <definition name="manage.*" extends="baseAdminTemplate">
+        <put-attribute name="content" value="/WEB-INF/pages/settings/manage/{1}.jsp" />
+        <put-attribute name="selected" value="{1}" />
+        <put-attribute name="admintype" value="manage" />
+    </definition>
+
+    <definition name="view.*" extends="baseAdminTemplate">
+        <put-attribute name="content" value="/WEB-INF/pages/settings/view/{1}.jsp" />
+        <put-attribute name="selected" value="{1}" />
+        <put-attribute name="admintype" value="view" />
+    </definition>
+
+    <definition name="catalog.*" extends="baseAdminTemplate">
+        <put-attribute name="content" value="/WEB-INF/pages/settings/catalog/{1}.jsp" />
+        <put-attribute name="selected" value="{1}" />
+        <put-attribute name="admintype" value="catalog" />
+    </definition>
+
+    <definition name="report.*" extends="baseAdminTemplate">
+        <put-attribute name="content" value="/WEB-INF/pages/settings/report/{1}.jsp" />
+        <put-attribute name="selected" value="{1}" />
+        <put-attribute name="admintype" value="report" />
+    </definition>
+
+
+
+
+</tiles-definitions>
