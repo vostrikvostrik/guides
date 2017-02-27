@@ -136,5 +136,15 @@ public class ManageController {
         return "manage.tours";
     }
 
+    @RequestMapping(value = "manage", method = RequestMethod.GET)
+    public String manage(Map<String, Object> map) throws IOException {
+        Authentication authentication =
+                SecurityContextHolder.getContext().getAuthentication();
+        if (authentication != null) {
 
+            map.put("currentUser", authentication.getPrincipal());
+        }
+
+        return "manage.manage";
+    }
 }

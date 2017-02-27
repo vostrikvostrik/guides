@@ -166,18 +166,58 @@
         <table class="table table-striped" id="resultSearch" name="resultSearch">
             <thead>
             <tr>
-                <th>Country</th>
-                <th>City</th>
-                <th>Tour type</th>
-                <th>Date begin</th>
-                <th>Date end</th>
-                <th>Guide</th>
-                <th>Link</th>
+                <th>Страна</th>
+                <th>Город</th>
+                <th>Тип тура</th>
+                <th>Дата начала</th>
+                <th>Дата конца</th>
+                <th>Гид</th>
+                <th>Ссылка</th>
             </tr>
             </thead>
             <tbody>
             </tbody>
         </table>
     </div>
+
+    <div>
+        <input type="submit" value="Start" onclick="start()" />
+    </div>
+    <div id="messages"></div>
+    <script type="text/javascript">
+        var webSocket =
+                new WebSocket('ws://localhost:8088/websocket');
+
+        webSocket.onerror = function(event) {
+            onError(event)
+        };
+
+        webSocket.onopen = function(event) {
+            onOpen(event)
+        };
+
+        webSocket.onmessage = function(event) {
+            onMessage(event)
+        };
+
+        function onMessage(event) {
+            document.getElementById('messages').innerHTML
+                    += '<br />' + event.data;
+        }
+
+        function onOpen(event) {
+            document.getElementById('messages').innerHTML
+                    = 'Connection established';
+        }
+
+        function onError(event) {
+            alert(event.data);
+        }
+
+        function start() {
+            webSocket.send('hello');
+            return false;
+        }
+    </script>
 </div>
 

@@ -34,6 +34,7 @@
     <beans:import resource="controllers.xml" />
 
 
-
+    <!--beans:bean id="webSocketTest" class="com.vostrik.controllers.websocket.WebSocketTest" >
+    </beans:bean-->
 
 </beans:beans>

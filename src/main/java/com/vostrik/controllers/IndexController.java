@@ -1,5 +1,6 @@
 package com.vostrik.controllers;
 
+import com.vostrik.controllers.websocket.WebSocketTest;
 import com.vostrik.db.beans.entity.City;
 import com.vostrik.db.beans.entity.Country;
 import com.vostrik.db.beans.entity.TourType;
@@ -12,6 +13,7 @@ import com.vostrik.service.MapService;
 import com.vostrik.service.MemberNoteService;
 import com.vostrik.service.SearchService;
 import com.vostrik.service.TourService;
+import org.glassfish.tyrus.server.Server;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,10 +27,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+
 
 /**
  * Created by EVostrikova on 10.07.15.
@@ -51,6 +56,21 @@ public class IndexController {
 
     @Autowired
     MemberNoteService memberNoteService;
+
+    public IndexController() {
+        Server server = new Server("localhost", 8088, "/websocket", WebSocketTest.class);
+
+        try {
+            server.start();
+            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+            System.out.print("Please press a key to stop the server.");
+            reader.readLine();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+        //    server.stop();
+        }
+    }
 
     @RequestMapping(value="/index", method = RequestMethod.GET)
     public String printWelcome(Map<String, Object>  map) throws IOException {

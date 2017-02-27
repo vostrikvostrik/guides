@@ -30,7 +30,6 @@
     <script src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.js"></script>
     <script src="<%=request.getContextPath()%>/resources/js/blockui.js"></script>
     <script src="<%=request.getContextPath()%>/resources/js/common.js"></script>
-    <script src="<%=request.getContextPath()%>/resources/js/scripts.js"></script>
     <script src="<%=request.getContextPath()%>/resources/js/bootstrap-select.js"></script>
     <script src="<%=request.getContextPath()%>/resources/js/bootstrap-select.min.js"></script>
 </head>

@@ -82,4 +82,7 @@
         <location>/WEB-INF/pages/errors/403.jsp</location>
     </error-page>
 
+    <!--listener>
+        <listener-class>com.vostrik.controllers.websocket.WebSocketTest</listener-class>
+    </listener-->
 </web-app>

@@ -25,15 +25,7 @@
     <script src="<%=request.getContextPath()%>/resources/js/bootstrap-datetimepicker.js"></script>
     <script src="<%=request.getContextPath()%>/resources/js/blockui.js"></script>
     <script src="<%=request.getContextPath()%>/resources/js/common.js"></script>
-    <script src="<%=request.getContextPath()%>/resources/js/scripts.js"></script>
 
-
-    <script src="//vk.com/js/api/openapi.js" type="text/javascript"></script>
-    <script src="<%=request.getContextPath()%>/resources/js/vk_auth.js"></script>
-    <script src="<%=request.getContextPath()%>/resources/js/fb_auth.js"></script>
-    <script type="text/javascript" src="//vk.com/js/api/openapi.js?84"></script>
-    <!-- Put this script tag to the <head> of your page -->
-    <script type="text/javascript" src="//vk.com/js/api/openapi.js?121&scope=friends,video,offline"></script>
 </head>
 
 <body onload="initTagCloud();" onunload="GUnload()">

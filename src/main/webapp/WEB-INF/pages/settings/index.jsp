@@ -26,7 +26,6 @@
     <script src="<%=request.getContextPath()%>/resources/js/bootstrap.min.js"></script>
     <script src="<%=request.getContextPath()%>/resources/js/bootstrap-datetimepicker.js"></script>
     <script src="<%=request.getContextPath()%>/resources/js/blockui.js"></script>
-    <script src="<%=request.getContextPath()%>/resources/js/scripts.js"></script>
     <script src="<%=request.getContextPath()%>/resources/js/docs.min.js"></script>
     <style type="text/css"></style>
     <style id="holderjs-style" type="text/css"></style>
