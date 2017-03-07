@@ -8,16 +8,6 @@
 'use strict';
 
 angular.module('guideApp')
-    .directive("formatDate", function(){
-        return {
-            require: 'ngModel',
-            link: function(scope, elem, attr, modelCtrl) {
-                modelCtrl.$formatters.push(function(modelValue){
-                    return new Date(modelValue);
-                })
-            }
-        }
-    })
     .controller('tourController', ['$scope', '$location', '$http', 'TourService', function ($scope, $location, $http, TourService) {
         // настройка контроллера
         $scope.jQuery = jQuery.noConflict();
@@ -31,7 +21,7 @@ angular.module('guideApp')
             tourStartDate: new Date(),
             tourEndDate: new Date(),
             tourPrice: 0,
-            tourCurrency: '',
+            tourCurrency: 0,
             tourActive: '',
             tourGuide: 0,
             tourCountry: 0,
@@ -43,6 +33,17 @@ angular.module('guideApp')
         };
         self.tours = [];
 
+        self.tourActiveStates= [
+            {id: 0, describe: 'заблокирован'},
+            {id: 1, describe: 'активен'}
+        ];
+
+        self.tourLifeCircles = [
+           {id: 0, describe: 'тур не начался'},
+           {id: 1, describe: 'тур начался'},
+           {id:2, describe: 'тур окончен'},
+           {id:3, describe: 'тур отменен'}
+        ];
 
         self.submit = submit;
         self.edit = edit;
@@ -97,7 +98,6 @@ angular.module('guideApp')
 
         function submit() {
             if (self.tour.tourId === null) {
-                console.log('Saving New Tour in controller', self.tour);
                 createTour(self.tour);
             } else {
                 updateTour(self.tour, self.tour.tourId);
@@ -109,9 +109,10 @@ angular.module('guideApp')
         function edit(id) {
             console.log('id to be edited', id);
             for (var i = 0; i < self.tours.length; i++) {
-                console.log('self.tours[i]', self.tours[i]);
                 if (self.tours[i].tourId === id) {
                     self.tour = angular.copy(self.tours[i]);
+                    self.tour.tourStartDate = new Date(self.tour.tourStartDate);
+                    self.tour.tourEndDate = new Date(self.tour.tourEndDate);
                     break;
                 }
             }
@@ -134,7 +135,7 @@ angular.module('guideApp')
                 tourStartDate: new Date(),
                 tourEndDate: new Date(),
                 tourPrice: 0,
-                tourCurrency: '',
+                tourCurrency: 0,
                 tourActive: '',
                 tourGuide: 0,
                 tourCountry: 0,

@@ -9,7 +9,7 @@
 
 angular.module('guideApp').factory('TourService', ['$http', '$q', function($http, $q){
 
-    var REST_SERVICE_URI = 'http://localhost:8083/tours';
+    var REST_SERVICE_URI = 'http://localhost:8083/tours/';
 
     var factory = {
         fetchAllTours: fetchAllTours,
@@ -53,7 +53,7 @@ angular.module('guideApp').factory('TourService', ['$http', '$q', function($http
 
     function updateTour(tour, id) {
         var deferred = $q.defer();
-        $http.put(REST_SERVICE_URI+id, user)
+        $http.put(REST_SERVICE_URI+id, tour)
             .then(
             function (response) {
                 deferred.resolve(response.data);

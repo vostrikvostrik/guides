@@ -25,7 +25,7 @@ public class CountryController {
         return listOfCountries;
     }
 
-    @RequestMapping(value = "/country/{id}", method = RequestMethod.GET, headers = "Accept=application/json")
+    @RequestMapping(value = "/countries/{id}", method = RequestMethod.GET, headers = "Accept=application/json")
     public Country getCountryById(@PathVariable Long id) {
         return baseDao.loadById(Country.class, id);
     }
@@ -41,7 +41,7 @@ public class CountryController {
 
     }
 
-    @RequestMapping(value = "/country/{id}", method = RequestMethod.DELETE, headers = "Accept=application/json")
+    @RequestMapping(value = "/countries/{id}", method = RequestMethod.DELETE, headers = "Accept=application/json")
     public void deleteCountry(@PathVariable("id") Long id) {
         baseDao.delete(Country.class, id);
     }
